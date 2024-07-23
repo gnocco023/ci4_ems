@@ -30,7 +30,7 @@
 
             <div>
                 <a type="button" class="btn btn-primary" href="#">Login</a>
-                <a type="button" class="btn btn-warning" href="#">Register</a>
+                <a type="button" class="btn btn-warning" href="<?= base_url() ?>account/register">Register</a>
             </div>
         </form>
     </div>
