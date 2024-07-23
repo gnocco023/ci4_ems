@@ -1,0 +1,29 @@
+[33mcommit 330ba546c34f8f047c6e8bb68d889cb0bf455e25[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: gnocco023 <davedenzel023@gmail.com>
+Date:   Tue Jul 23 18:59:24 2024 +0800
+
+    feat(account): created login forms and registration
+
+[33mcommit cb67c3b4b5a2fe0bc86d5cffc8ece8d2bf52df4b[m
+Author: gnocco023 <davedenzel023@gmail.com>
+Date:   Tue Jul 23 16:55:02 2024 +0800
+
+    feat(account): added account controller and views for it
+
+[33mcommit fb8cfe41b6cab00b339c97154deae353d2fa4387[m
+Author: gnocco023 <davedenzel023@gmail.com>
+Date:   Tue Jul 23 08:42:57 2024 +0800
+
+    feat(config) remove  value in App.php
+
+[33mcommit 6a549cde1059bc5367c68a220fd73ca358792ba2[m
+Author: gnocco023 <davedenzel023@gmail.com>
+Date:   Tue Jul 23 08:39:55 2024 +0800
+
+    created a modified copy of index.php in main directory from public/index.php
+
+[33mcommit 28b2cb585da8a2a1705d52f3cde0b0dda24d5cab[m
+Author: gnocco023 <davedenzel023@gmail.com>
+Date:   Tue Jul 23 08:11:10 2024 +0800
+
+    initial commit with fresh installed ci4
