@@ -8,6 +8,8 @@
     }
 </style>
 
+<title>Login</title>
+
 <div id="login-div" class="d-flex flex-column justify-content-center align-items-center">
     <div class="mb-3">
         <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 24 24">
@@ -28,10 +30,18 @@
                 <label for="password" class="form-label">Password</label>
             </div>
 
-            <div>
+            <div class="mb-3">
                 <a type="button" class="btn btn-primary" href="#">Login</a>
                 <a type="button" class="btn btn-warning" href="<?= base_url() ?>account/register">Register</a>
             </div>
+
+            <?php if (session()->get('success_message')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->get('success_message') ?>
+                </div>
+            <?php endif; ?>
+
+
         </form>
     </div>
 </div>

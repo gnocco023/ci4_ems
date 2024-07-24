@@ -31,7 +31,7 @@ class AccountSeeder extends Seeder
                 'lastname' => 'Squarepants',
                 'firstname' => 'Spongebob',
                 'middlename' => '',
-                'sex' => 'P',
+                'sex' => 'M',
                 'email' => 'worker@gmail.com',
                 'username' => 'worker',
                 'password' =>  sha1('123456'),
