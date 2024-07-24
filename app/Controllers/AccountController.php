@@ -73,14 +73,4 @@ class AccountController extends BaseController
 
         return view('account/register', $data);
     }
-
-    public function test()
-    {
-        $account_model = new AccountModel();
-        $data['accounts'] = $account_model->findAll();
-
-        dd($data);
-
-        return $data;
-    }
 }

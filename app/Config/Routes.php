@@ -9,3 +9,5 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/account/login', 'AccountController::login');
 $routes->match(['GET', 'POST'], '/account/register', 'AccountController::register');
+
+$routes->get('/admin', 'AdminController::index');
