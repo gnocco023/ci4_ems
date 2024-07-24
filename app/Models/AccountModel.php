@@ -4,11 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
+use App\Entities\AccountEntity;
+
 class AccountModel extends Model
 {
     protected $table            = 'tbl_account';
     protected $primaryKey       = 'id';
-    protected $returnType       = 'object';
+    protected $returnType       = AccountEntity::class;
     protected $allowedFields    = [
         'lastname',
         'firstname',

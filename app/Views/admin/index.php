@@ -29,10 +29,10 @@
                 <td><?= $account->sex ?></td>
                 <td><?= $account->email ?></td>
                 <td><?= $account->username ?></td>
-                <td><?php foreach ($service_provider_type as $spt) if ($spt->id == $account->service_provider_type_id) echo $spt->type; ?></td>
+                <td><?= $account->ConvertServiceProviderType($service_provider_type) ?></td>
                 <td>
                     <div>
-                        <a href="#" class="btn btn-success">Activate</a>
+                        <a href="<?= base_url() ?>admin/activate/<?= $account->id ?>" class="btn btn-success">Activate</a>
                         <a href="#" class="btn btn-primary">Update</a>
                         <a href="#" class="btn btn-danger">Delete</a>
                     </div>

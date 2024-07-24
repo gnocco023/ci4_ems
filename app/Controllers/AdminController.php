@@ -18,4 +18,19 @@ class AdminController extends BaseController
 
         return view('admin/index', $data);
     }
+
+
+    public function activate($id)
+    {
+        $data = [];
+        $service_provider_model = new ServiceProviderTypeModel();
+        $account_model = new AccountModel();
+
+        $data['account'] = $account_model->find($id);
+        $data['service_provider_type'] = $service_provider_model->where('type !=', 'ADMIN')->findAll();
+
+
+
+        return view('admin/activate', $data);
+    }
 }
