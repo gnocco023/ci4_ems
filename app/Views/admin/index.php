@@ -9,6 +9,13 @@
 <p>Below is the list of accounts</p>
 
 
+<?php if (session()->get('success_message')) : ?>
+    <div class="alert alert-success" role="alert">
+        <?= session()->get('success_message') ?>
+    </div>
+<?php endif; ?>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -29,12 +36,15 @@
                 <td><?= $account->sex ?></td>
                 <td><?= $account->email ?></td>
                 <td><?= $account->username ?></td>
-                <td><?= $account->ConvertServiceProviderType($service_provider_type) ?></td>
+                <td><?= $account->type ?></td>
                 <td>
                     <div>
-                        <a href="<?= base_url() ?>admin/activate/<?= $account->id ?>" class="btn btn-success">Activate</a>
+                        <?php if ($account->isActivated == 0) : ?>
+                            <a href="<?= base_url() ?>admin/activate/<?= $account->id ?>" class="btn btn-success">Activate</a>
+                        <?php endif; ?>
+
                         <a href="#" class="btn btn-primary">Update</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="<?= base_url() ?>admin/delete/<?= $account->id ?>" class="btn btn-danger">Delete</a>
                     </div>
                 </td>
 

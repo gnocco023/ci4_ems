@@ -2,21 +2,14 @@
 <?= $this->section('content') ?>
 
 
-<title>Activate Account</title>
+<title>Delete Account</title>
 
-<form action="<?= base_url() ?>admin/activate/<?= $account->id ?>" method="POST">
-    <p class="h1">Activate Account</p>
+<form action="<?= base_url() ?>admin/delete/<?= $account->id ?>" method="POST">
+    <p class="h1">Delete Account</p>
     <ul class="list-inline">
-        <li class="list-inline-item">Please select the center assignment:</li>
-        <li class="list-inline-item">
-            <select class="form-select" name="selected_center">
-                <option selected>-- Select Here --</option>
-                <?php foreach ($centers as $center) : ?>
-                    <option value="<?= $center->id ?>"><?= $center->name ?></option>
-                <?php endforeach ?>
-            </select>
-        </li>
-        <li class="list-inline-item"><button class="btn btn-success" type="submit">Submit</button></li>
+        <li class="list-inline-item">Are you sure you want to delete this account?</li>
+        <li class="list-inline-item"></li>
+        <li class="list-inline-item"><button class="btn btn-danger" type="submit">Yes, Delete it now!</button></li>
     </ul>
 
     <div>
@@ -38,6 +31,21 @@
 
             <dt class="col-sm-2">Email</dt>
             <dd class="col-sm-9"><?= $account->email ?></dd>
+
+            <dt class="col-sm-2"></dt>
+            <dd class="col-sm-9"></dd>
+
+            <dt class="text-decoration-underline">Center Assignment Details:</dt>
+            <dd></dd>
+
+
+
+            <dt class="col-sm-2">Center Name</dt>
+            <dd class="col-sm-9"><?= $account->center_name ?></dd>
+            <dt class="col-sm-2">Start Date</dt>
+            <dd class="col-sm-9"><?= $account->start_date ?></dd>
+            <dt class="col-sm-2">End Date</dt>
+            <dd class="col-sm-9"><?= $account->end_date ?></dd>
         </dl>
     </div>
 </form>
