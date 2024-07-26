@@ -15,8 +15,8 @@
 
     <?php if (session()->get('isAdmin') == 1) : ?>
         <?= $this->include('layout/navbar_admin.php') ?>
-    <?php else : ?>
-        <?= "Hindi admin" ?>
+    <?php elseif (session()->get('isAdmin') == 0) : ?>
+        <!-- TODO: create the navbar for teacher and worker -->
     <?php endif; ?>
 
 
