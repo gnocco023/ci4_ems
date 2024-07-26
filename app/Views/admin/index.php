@@ -43,8 +43,19 @@
                             <a href="<?= base_url() ?>admin/activate/<?= $account->id ?>" class="btn btn-success">Activate</a>
                         <?php endif; ?>
 
-                        <a href="#" class="btn btn-primary">Update</a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Update
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url() ?>admin/update/account_details/<?= $account->id ?>">Account Details</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url() ?>admin/update/center_assignment/<?= $account->id ?>">Center Assignment</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
                         <a href="<?= base_url() ?>admin/delete/<?= $account->id ?>" class="btn btn-danger">Delete</a>
+
+
                     </div>
                 </td>
 
