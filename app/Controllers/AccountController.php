@@ -9,6 +9,44 @@ class AccountController extends BaseController
 {
     public function login()
     {
+        helper('form');
+        $session = session();
+        $data = [];
+
+
+        if ($this->request->is('POST')) {
+
+            $post = $this->request->getPost([
+                'username',
+                'password',
+            ]);
+
+
+
+            $account_model = new AccountModel();
+            $account = $account_model->where('username', $post['username'])
+                ->where('password', sha1($post['password']))
+                ->first();
+
+
+            if (!$account) {
+                $session->setFlashdata('failed_message', 'Something went wrong. Please try again!');
+            } else {
+
+                $account = $account_model->loginById($account->id);
+
+                $session->set($account);
+
+                if ($account['isAdmin'] == 1) return redirect()->to('admin');
+                else {
+                    // TODO: controller and views of CDT/CDW account
+                    return view('');
+                }
+            }
+        }
+
+
+
         return view('account/login');
     }
 
@@ -72,5 +110,13 @@ class AccountController extends BaseController
         }
 
         return view('account/register', $data);
+    }
+
+
+    public function logout()
+    {
+        session()->destroy();
+
+        return redirect()->to('account/login');
     }
 }

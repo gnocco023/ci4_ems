@@ -20,24 +20,31 @@
         Enrollment Monitoring System
     </div>
     <div>
-        <form>
+        <form action="<?= base_url() ?>account/login" method="POST">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="username" placeholder="Username">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                 <label for="username" class="form-label">Username</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="password" placeholder="password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="password">
                 <label for="password" class="form-label">Password</label>
             </div>
 
             <div class="mb-3">
-                <a type="button" class="btn btn-primary" href="#">Login</a>
+                <button type="submit" class="btn btn-primary">Login</button>
                 <a type="button" class="btn btn-warning" href="<?= base_url() ?>account/register">Register</a>
             </div>
 
             <?php if (session()->get('success_message')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->get('success_message') ?>
+                </div>
+            <?php endif; ?>
+
+
+            <?php if (session()->get('failed_message')) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= session()->get('failed_message') ?>
                 </div>
             <?php endif; ?>
 

@@ -13,6 +13,12 @@
 
 <body>
 
+    <?php if (session()->get('isAdmin') == 1) : ?>
+        <?= $this->include('layout/navbar_admin.php') ?>
+    <?php else : ?>
+        <?= "Hindi admin" ?>
+    <?php endif; ?>
+
 
 
     <div class="container py-3 my-3">

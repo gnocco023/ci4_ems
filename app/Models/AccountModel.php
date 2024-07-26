@@ -68,7 +68,7 @@ class AccountModel extends Model
         ], false);
         $builder->join('lib_service_provider_type lib_spt', 'lib_spt.id = tbl_account.service_provider_type_id', 'inner');
         $builder->join('tbl_center_assignment tbl_ca', 'tbl_ca.account_id = tbl_account.id', 'left');
-        $builder->where('tbl_account.id = ', esc($id));
+        $builder->where('tbl_account.id', esc($id));
         $query = $builder->get();
 
 
@@ -93,10 +93,32 @@ class AccountModel extends Model
         $builder->join('lib_service_provider_type lib_spt', 'lib_spt.id = tbl_account.service_provider_type_id', 'inner');
         $builder->join('tbl_center_assignment tbl_ca', 'tbl_ca.account_id = tbl_account.id', 'inner');
         $builder->join('tbl_center tbl_c', 'tbl_c.id = tbl_ca.center_id', 'inner');
-        $builder->where('tbl_account.id = ', esc($id));
+        $builder->where('tbl_account.id', esc($id));
         $query = $builder->get();
 
 
         return $query->getFirstRow();
+    }
+
+    public function loginById($id)
+    {
+        $builder = $this->db->table('tbl_account');
+        $builder->select([
+            'tbl_account.id',
+            'tbl_account.lastname',  'tbl_account.firstname', 'tbl_account.middlename',
+            'tbl_account.sex',
+            'tbl_account.email',
+            'tbl_account.username',
+            'lib_spt.type',
+            'CASE WHEN tbl_ca.id IS NULL THEN 0 ELSE 1 END AS isActivated',
+            'CASE WHEN lib_spt.id != 3 THEN 0 ELSE 1 END AS isAdmin'
+        ], false);
+        $builder->join('lib_service_provider_type lib_spt', 'lib_spt.id = tbl_account.service_provider_type_id', 'inner');
+        $builder->join('tbl_center_assignment tbl_ca', 'tbl_ca.account_id = tbl_account.id', 'left');
+        $builder->where('tbl_account.id', esc($id));
+        $query = $builder->get();
+
+
+        return $query->getFirstRow('array');
     }
 }

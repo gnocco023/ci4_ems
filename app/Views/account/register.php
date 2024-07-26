@@ -100,7 +100,7 @@
 
             <div>
                 <a type="button" class="btn btn-secondary" href="<?= base_url() ?>account/login">Back to login</a>
-                <button class="btn btn-primary" type="submit">Register my account please</a>
+                <button class="btn btn-primary" type="submit">Register my account please</button>
             </div>
         </form>
     </div>
