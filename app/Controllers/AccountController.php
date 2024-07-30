@@ -38,10 +38,7 @@ class AccountController extends BaseController
                 $session->set($account);
 
                 if ($account['isAdmin'] == 1) return redirect()->to('admin');
-                else {
-                    // TODO: controller and views of CDT/CDW account
-                    return view('');
-                }
+                else return redirect()->to('user');
             }
         }
 

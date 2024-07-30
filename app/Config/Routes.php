@@ -17,3 +17,5 @@ $routes->match(['GET', 'POST'], '/admin/activate/(:num)', 'AdminController::acti
 $routes->match(['GET', 'POST'], '/admin/delete/(:num)', 'AdminController::delete/$1');
 
 $routes->match(['GET', 'POST'], '/admin/update/account_details/(:num)', 'AdminController::updateAccountDetails/$1');
+
+$routes->get('/user', 'UserController::index');
